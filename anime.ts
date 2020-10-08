@@ -1,5 +1,5 @@
 // bot add link
-
+// https://discord.com/oauth2/authorize?client_id=763464598959292458&scope=bot&permissions=515136
 
 //Permissions site
 // https://discordapi.com/permissions.html#8
@@ -26,7 +26,7 @@ client.on('ready', () => {
     // Sets Bot Status
     console.log("Connected as " + client.user.tag + ", yo yo yo")
     //client.user.setActivity("with JavaScript", {type: "PLAYING"})
-    client.user.setActivity("//help", {type: "STREAMING"})
+    client.user.setActivity("//help", {type: "PLAYING"})
 
 
 });
