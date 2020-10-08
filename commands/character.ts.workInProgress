@@ -53,7 +53,7 @@ module.exports = {
             //var desc = results.data.Media.description.substring(0,100);
 
             const aboutEmbed = new Discord5.MessageEmbed()
-            .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native})`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
+            .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native}) THIS IS NOT DONE YET`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
             .setColor('#02f2ce')
             .setDescription(`${results.data.Media.description.substring(0,250)}...`)
             .addFields(
