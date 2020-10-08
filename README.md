@@ -1,9 +1,9 @@
-# Rebel Fleet Admiral
- Discord bot for [Rebel Grenades](https://discord.gg/wDUgCrE)
+# Anime List
+ Discord bot for [AniList](https://anilist.co)
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 [![license](https://img.shields.io/github/license/Chr1sDev/rebel-fleet-admiral?style=flat-square)](LICENSE)
-[![chat](https://img.shields.io/discord/586736904771469313?style=flat-square)](https://discord.gg/wDUgCrE)
+[![chat](https://img.shields.io/discord/586736904771469313?style=flat-square)](https://discord.gg/STpSM5W)
 
 
 ## Setup
@@ -14,16 +14,16 @@ Create a json file called config.json and paste it in like this:
 
 ```json
 {
-	"prefix": "prefixGoesHere (examples: !, r!, -, _)",
+	"prefix": "prefixGoesHere (examples: !, //, -, _)",
 	"token": "tokenGoesHere"
 }
 ```
 
 #### Dependencies
 
-run `npm i` in the bot directory to install dependencies
+run `npm i` or `npm run install` in the bot directory to install dependencies
 
 ## Starting
 
 **Run the Bot with:**
-`node .`
+`node .` or `npm run start`

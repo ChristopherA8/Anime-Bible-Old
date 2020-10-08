@@ -1,7 +1,7 @@
 {
   "name": "animelist",
   "version": "1.0.0",
-  "description": "discord bot for MAL API",
+  "description": "discord bot for AniList API",
   "main": "anime.ts",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
