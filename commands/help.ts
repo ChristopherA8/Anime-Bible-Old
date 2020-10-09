@@ -10,7 +10,7 @@ module.exports = {
         .setFooter('')
         .setDescription('')
         .addFields(
-            { name: '**1.** //anime <anime name>\n**2.** //manga <manga name>\n**3.** //about', value: "page 1/1"}
+            { name: '**1.** //anime <anime name>\n**2.** //manga <manga name>\n**3.** //quotes [specify anime optional]\n**4.** //about', value: "page 1/1"}
         )
         .setThumbnail(`https://chr1s.dev/assets/animelist.png`)
         msg.channel.send(exampleEmbed);
