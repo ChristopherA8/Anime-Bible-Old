@@ -70,7 +70,7 @@ module.exports = {
             //.setTitle(`About Anime List`)
             //.setURL(`https://chr1s.dev`)
             .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native})`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
-            .setColor('#02f2ce')
+            .setColor('#55128E')
             .setDescription(`${results.data.Media.description.substring(0,250)}...`)
             .setFooter(`Total Episodes: ${results.data.Media.episodes}   |   Average Score: ${results.data.Media.averageScore}/100`, `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)

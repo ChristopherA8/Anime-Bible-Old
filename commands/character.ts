@@ -20,7 +20,7 @@ module.exports = {
 
             const aboutEmbed = new Discord7.MessageEmbed()
             .setAuthor(`${name}`, `${image_url}`,`${url}`)
-            .setColor('#02f2ce')
+            .setColor('#55128E')
             .setDescription(`Found in: [${animeName}](${animeUrl})`)
             .setFooter(`MyAnimeList id: ${mal_id}`, `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${image_url}`)

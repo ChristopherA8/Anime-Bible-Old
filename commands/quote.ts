@@ -22,7 +22,7 @@ module.exports = {
 
             const aboutEmbed = new Discord6.MessageEmbed()
             .setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
-            .setColor('#02f2ce')
+            .setColor('#55128E')
             .setDescription(`${quote}\n **- ${character}**`)
             msg.channel.send(aboutEmbed)
 

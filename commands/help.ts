@@ -5,7 +5,7 @@ module.exports = {
 	execute(msg, args) {
         
         const exampleEmbed = new Discord2.MessageEmbed()
-        .setColor('#00FF86')
+        .setColor('#55128E')
         .setTitle('Command List')
         .setFooter('')
         .setDescription('')
