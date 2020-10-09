@@ -2,7 +2,7 @@
   "name": "animelist",
   "version": "1.0.0",
   "description": "discord bot for various Anime APIs",
-  "main": "anime.ts",
+  "main": "index.ts",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "discord.js": "12.3.1",
