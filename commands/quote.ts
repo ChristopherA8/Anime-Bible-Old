@@ -6,11 +6,7 @@ module.exports = {
 
         const fetch = require('node-fetch');
 
-        var input = msg.content.substr(7).trim();
-
-
-        var url1 = `https://animechanapi.xyz/api/quotes?anime=${input}`;
-        var url2 = `https://animechanapi.xyz/api/quotes/random`;
+        var input = msg.content.substr(8);
 
         if (input === "") {
             var url = `https://animechanapi.xyz/api/quotes/random`;
@@ -34,10 +30,9 @@ module.exports = {
         .catch(handleError);
 
         function handleError(error) {
-            msg.channel.send(`\**Error:\** Invalid anime name!`);
+            msg.channel.send(`\**Error:\** Invalid anime name! (//quote command does not include many anime)`);
             //console.error(error);
         }
-
 
     },
 }
