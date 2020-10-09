@@ -6,7 +6,7 @@ module.exports = {
 
         const fetch = require('node-fetch');
 
-        var input = msg.content.substr(9).trim();
+        var input = msg.content.substr(7).trim();
 
 
         var url1 = `https://animechanapi.xyz/api/quotes?anime=${input}`;
