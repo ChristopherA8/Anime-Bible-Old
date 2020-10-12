@@ -17,7 +17,6 @@
     "@types/got": "^9.6.11"
   },
   "scripts": {
-    "install": "npm i",
     "start": "node ."
   },
   "author": "",

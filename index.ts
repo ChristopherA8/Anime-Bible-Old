@@ -57,13 +57,21 @@ client.on('message', msg => {
   }
 
   try {
-    command.execute(msg, args);
+    //Banned Users
+    if (msg.author.id == `544014086887833611`) {
+      msg.reply(`You have been banned from using me\nI shall not throw my pearls of anime wisodom to an unenlightened normie swine such as yourself`);
+    } else if (msg.author.id == `620438897217896459`) {
+      msg.reply(`You have been banned from using me\nI shall not throw my pearls of anime wisodom to an unenlightened normie swine such as yourself`);
+    } else {
+      command.execute(msg, args);
+    }
   } catch (error) {
     console.error(error);
     const user = client.users.cache.get('279032930926592000');
     //user.send(`**Crashlog:** \n${error}`);
 	  msg.reply(`\**Crashlog:\** ${error}`);
   }
+
 
 
 });
