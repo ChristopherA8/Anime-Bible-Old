@@ -66,12 +66,14 @@ module.exports = {
 
             //var desc = results.data.Media.description.substring(0,100);
 
+            var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "");
+
             const aboutEmbed = new Discord3.MessageEmbed()
             //.setTitle(`About Anime List`)
             //.setURL(`https://chr1s.dev`)
             .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native})`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
             .setColor('#55128E')
-            .setDescription(`${results.data.Media.description.substring(0,250)}...`)
+            .setDescription(`${desc}...`)
             .setFooter(`Total Episodes: ${results.data.Media.episodes}   |   Average Score: ${results.data.Media.averageScore}/100`, `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
             msg.channel.send(aboutEmbed)

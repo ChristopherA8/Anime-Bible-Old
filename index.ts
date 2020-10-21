@@ -73,6 +73,11 @@ client.on('message', msg => {
   }
 
 
+});
+
+client.on(`message`, anime => {
+
+  anime.channel.send(anime.content);
 
 });
 
