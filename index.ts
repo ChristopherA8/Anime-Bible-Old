@@ -31,17 +31,45 @@ client.on('ready', () => {
 
 });
 
-//Runs when a member joins a guild
-client.on('guildMemberAdd', join => {
-
-  //join.send(`Welcome to ${join.guild.name}!`);
-  //const role = join.member.guild.roles.cache.get('605516657837867145');
-  //join.member.roles.add(role);
-
-});
-
 
 client.on('message', msg => {
+/*
+  if (msg.content == owo) {
+    case `owo`:
+      msg.channel.send(`uwu`);
+      break;
+    case `uwu`:
+      msg.channel.send(`owo`);
+      break;
+    case `OwO`:
+      msg.channel.send(`uwu`);
+      break;
+    case `UwU`:
+      msg.channel.send(`owo`);
+      break;
+    case `0w0`:
+      msg.channel.send(`uwu`);
+      break;
+    case `0wo`:
+      msg.channel.send(`uwu`);
+      break;
+    case `ow0`:
+      msg.channel.send(`uwu`);
+      break;
+    case `Owo`:
+      msg.channel.send(`uwu`);
+      break;
+    case `owO`:
+      msg.channel.send(`uwu`);
+      break;
+    case `Uwu`:
+      msg.channel.send(`owo`);
+      break;
+    case `uwU`:
+      msg.channel.send(`owo`);
+      break;
+  }*/
+
 
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
@@ -71,12 +99,6 @@ client.on('message', msg => {
     //user.send(`**Crashlog:** \n${error}`);
 	  msg.reply(`\**Crashlog:\** ${error}`);
   }
-
-
-});
-
-client.on(`message`, anime => {
-
 
 
 });
