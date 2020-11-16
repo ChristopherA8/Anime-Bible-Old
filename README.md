@@ -6,6 +6,8 @@
 [![chat](https://img.shields.io/discord/700453406061494292?style=flat-square)](https://discord.gg/STpSM5W)
 
 
+[![top.gg link](https://top.gg/api/widget/763464598959292458.svg)](https://top.gg/bot/763464598959292458)
+
 ## Setup
 
 This does not include the token, which you will need to add manually from the discord developer panel
