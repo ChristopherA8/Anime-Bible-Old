@@ -66,7 +66,7 @@ module.exports = {
 
             //var desc = results.data.Media.description.substring(0,100);
 
-            var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "");
+            var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "").replace(/&mdash;/gi, "-").replace(/&ndash;/gi, "-");
 
             const aboutEmbed = new Discord3.MessageEmbed()
             //.setTitle(`About Anime List`)

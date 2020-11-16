@@ -4,6 +4,8 @@
 //Permissions site
 // https://discordapi.com/permissions.html#8
 
+//https://chr1s.dev/anime
+
 const fs = require('fs');
 const Discord = require('discord.js')
 const config = require('./config.json');
