@@ -30,7 +30,10 @@ client.on('ready', () => {
   // Sets Bot Status
   console.log("Connected as " + client.user.tag + ", yo yo yo")
   //client.user.setActivity("with JavaScript", {type: "PLAYING"})
-  client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
+  setInterval(() => {
+    client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
+  }, 1800000);
+
 
   //top.gg
   setInterval(() => {
