@@ -9,14 +9,16 @@
 const fs = require('fs');
 const Discord = require('discord.js')
 const config = require('./config.json');
-const { prefix, token } = require('./config.json');
+const { prefix, token, topToken } = require('./config.json');
 const client = new Discord.Client()
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.ts'));
+//top.gg
+const DBL = require('dblapi.js');
+const dbl = new DBL(topToken, client);
 
 
-
-//Include Command Files ending in .js
+//Include Command Files ending in .ts
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
@@ -25,53 +27,22 @@ for (const file of commandFiles) {
 // Runs once at startup
 client.on('ready', () => {
 
-    // Sets Bot Status
-    console.log("Connected as " + client.user.tag + ", yo yo yo")
-    //client.user.setActivity("with JavaScript", {type: "PLAYING"})
-    client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
+  // Sets Bot Status
+  console.log("Connected as " + client.user.tag + ", yo yo yo")
+  //client.user.setActivity("with JavaScript", {type: "PLAYING"})
+  client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
 
+  //top.gg
+  setInterval(() => {
+    dbl.postStats(client.guilds.cache.size);
+  }, 1800000);
 
 });
 
 
 client.on('message', msg => {
-/*
-  if (msg.content == owo) {
-    case `owo`:
-      msg.channel.send(`uwu`);
-      break;
-    case `uwu`:
-      msg.channel.send(`owo`);
-      break;
-    case `OwO`:
-      msg.channel.send(`uwu`);
-      break;
-    case `UwU`:
-      msg.channel.send(`owo`);
-      break;
-    case `0w0`:
-      msg.channel.send(`uwu`);
-      break;
-    case `0wo`:
-      msg.channel.send(`uwu`);
-      break;
-    case `ow0`:
-      msg.channel.send(`uwu`);
-      break;
-    case `Owo`:
-      msg.channel.send(`uwu`);
-      break;
-    case `owO`:
-      msg.channel.send(`uwu`);
-      break;
-    case `Uwu`:
-      msg.channel.send(`owo`);
-      break;
-    case `uwU`:
-      msg.channel.send(`owo`);
-      break;
-  }*/
 
+//Command Handler
 
   if (!msg.content.startsWith(prefix) || msg.author.bot) return;
 
@@ -87,14 +58,7 @@ client.on('message', msg => {
   }
 
   try {
-    //Banned Users
-    if (msg.author.id == `544014086887833611`) {
-      msg.reply(`You have been banned from using me\nI shall not throw my pearls of anime wisodom to an unenlightened normie swine such as yourself`);
-    } else if (msg.author.id == `620438897217896459`) {
-      msg.reply(`You have been banned from using me\nI shall not throw my pearls of anime wisodom to an unenlightened normie swine such as yourself`);
-    } else {
-      command.execute(msg, args);
-    }
+    command.execute(msg, args);
   } catch (error) {
     console.error(error);
     const user = client.users.cache.get('279032930926592000');
@@ -104,6 +68,18 @@ client.on('message', msg => {
 
 
 });
+
+//Top.gg API
+ 
+// Optional events
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+})
+ 
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+})
+
 
   client.login(token)
 
