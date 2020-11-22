@@ -84,6 +84,6 @@ module.exports = {
             msg.channel.send(`\**Error:\** Invalid anime name!`);
             //console.error(error);
         }
-    ////////
+    ///////
     },
 }
