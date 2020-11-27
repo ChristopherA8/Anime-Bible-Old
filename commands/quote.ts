@@ -34,7 +34,7 @@ module.exports = {
             //console.error(error);
         }
 
-        msg.channel.send(`API Down for Maintenance!`);
+        //msg.channel.send(`API Down for Maintenance!`);
 
     },
 }
