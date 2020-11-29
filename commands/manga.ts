@@ -7,7 +7,7 @@ module.exports = {
 
         const fetch = require('node-fetch');
 
-
+        const sanitizeHtml = require('sanitize-html');
 
         // Define our query variables and values that will be used in the query request
         var vars = {
@@ -65,8 +65,9 @@ module.exports = {
         function handleData(results) {
 
             //var desc = results.data.Media.description.substring(0,100);
-
-            var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "");
+            var dirty = results.data.Media.description.substring(0,250);
+            const desc = sanitizeHtml(dirty, { allowedTags: [], allowedAttributes: {} });
+            //var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "");
 
             const aboutEmbed = new Discord4.MessageEmbed()
             //.setTitle(`About Anime List`)

@@ -5,6 +5,8 @@ module.exports = {
     description: '',
     execute(msg) {
 
+        const sanitizeHtml = require('sanitize-html');
+
         const fetch = require('node-fetch');
 
 
@@ -66,7 +68,11 @@ module.exports = {
 
             //var desc = results.data.Media.description.substring(0,100);
 
-            var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "").replace(/&mdash;/gi, "-").replace(/&ndash;/gi, "-");
+            var dirty = results.data.Media.description.substring(0,250);
+            const desc = sanitizeHtml(dirty, { allowedTags: [], allowedAttributes: {} });
+            //var desc = results.data.Media.description.substring(0,250).replace(/&mdash;/gi, "-").replace(/&ndash;/gi, "-").replace( /(<([^>]+)>)/ig, '');
+
+
 
             const aboutEmbed = new Discord3.MessageEmbed()
             //.setTitle(`About Anime List`)
