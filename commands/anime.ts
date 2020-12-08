@@ -5,6 +5,13 @@ module.exports = {
     description: '',
     execute(msg) {
 
+        const SQLite = require('better-sqlite3');
+        const sql = new SQLite('./databases/stats.sqlite');
+        var stats = sql.prepare("SELECT * FROM stats").get();
+        stats.anime++;
+        stats.total++;
+        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote);").run(stats);
+
         const sanitizeHtml = require('sanitize-html');
 
         const fetch = require('node-fetch');
