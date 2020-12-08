@@ -6,10 +6,10 @@ module.exports = {
 
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
-        var stats = sql.prepare("SELECT * FROM stats").get();
+        var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
         stats.about++;
         stats.total++;
-        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote);").run(stats);
+        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay);").run(stats);
 
         const aboutEmbed = new Discord1.MessageEmbed()
         .setTitle(`About Anime Bible`)
