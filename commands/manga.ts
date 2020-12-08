@@ -92,7 +92,5 @@ module.exports = {
             msg.channel.send(`\**Error:\** Invalid manga name!`);
             //console.error(error);
         }
-    ////////
-    console.log(`-`);
     },
 }
