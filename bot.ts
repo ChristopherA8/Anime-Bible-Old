@@ -29,8 +29,8 @@ client.on('ready', () => {
 
   // Sets Bot Status
   console.log("Connected as " + client.user.tag + ", yo yo yo")
-  //client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
-  client.user.setActivity(`Quick Maintenance - will be back up soon!`, {type: "PLAYING"});
+  client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
+  //client.user.setActivity(`Quick Maintenance - will be back up soon!`, {type: "PLAYING"});
 
   //top.gg
   setInterval(() => {
