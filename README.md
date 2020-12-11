@@ -7,3 +7,6 @@
 
 
 [![top.gg link](https://top.gg/api/widget/763464598959292458.svg)](https://top.gg/bot/763464598959292458)
+
+
+[![example image](https://chr1s.dev/assets/anime.png)](https://chr1s.dev/anime)
