@@ -42,6 +42,13 @@ module.exports = {
         }
 
         //msg.channel.send(`API Down for Maintenance!`);
+        // const notifier = require(`node-notifier`);
+
+        // notifier.notify({
+        //     title: 'Anime Bible',
+        //     message: 'Quote sent',
+        //     icon: 'C:\\Users\\chris\\Pictures\\Chr1sDev\\chr1s.png'
+        //   });
 
     },
 }

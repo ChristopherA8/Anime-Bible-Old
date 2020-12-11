@@ -11,6 +11,7 @@
     "ffmpeg-static": "^4.2.7",
     "mathjs": "^7.5.1",
     "node-fetch": "^2.6.1",
+    "node-notifier": "^8.0.0",
     "sanitize-html": "^2.1.2",
     "xmlhttprequest": "1.8.0",
     "ytdl-core-discord": "^1.2.1",
