@@ -13,22 +13,36 @@ module.exports = {
 
         const fetch = require('node-fetch');
 
-        var input = msg.content.substr(12);
+        var input = msg.content.substr(11);
 
         var searchURL = `https://api.jikan.moe/v3/search/character?q=${input}&page=1`;
 
         fetch(searchURL)
         .then(res => res.json())
         .then((api) => {
-
             const { name, image_url, url, mal_id } = api.results[0];
-            const animeName = api.results[0].anime[0].name;
+
+            var names = [];
+            for (let index = 0; index < api.results[0].anime.length; index++) {
+                if (api.results[0].anime.length <= 10) {
+                    const element = api.results[0].anime[index];
+                    names.push(`[${element.name}](${element.url})`);
+                } else {
+                    const element = api.results[0].anime[index];
+                    if (names.length <= 9) {
+                        names.push(`[${element.name}](${element.url})`);
+                    } else if (names.length = 10) {
+                        names.push(`[${element.name}](${element.url})\n**...**`);
+                    }
+                }
+            }
+
             const animeUrl = api.results[0].anime[0].url;
 
             const aboutEmbed = new Discord7.MessageEmbed()
             .setAuthor(`${name}`, `${image_url}`,`${url}`)
             .setColor('#55128E')
-            .setDescription(`Found in: [${animeName}](${animeUrl})`)
+            .setDescription(`Found in:\n${names.join("\n")}`)
             .setFooter(`MyAnimeList id: ${mal_id}`, `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${image_url}`)
             msg.channel.send(aboutEmbed)
