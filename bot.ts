@@ -90,8 +90,8 @@ client.on('message', msg => {
   } catch (error) {
     console.error(error);
     const user = client.users.cache.get('279032930926592000');
-    //user.send(`**Crashlog:** \n${error}`);
-	  msg.reply(`\**Crashlog:\** ${error}`);
+    user.send(`**Crashlog:** \n${error}`);
+	  //msg.reply(`\**Crashlog:\** ${error}`);
   }
 
 
