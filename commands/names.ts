@@ -3,7 +3,7 @@ module.exports = {
     execute(msg) {
 
         //msg.client.guilds.cache.forEach(server => console.log(server.name))
-        // var name = msg.client.guilds.cache.filter(server => server.partnered == true);
+        msg.client.guilds.cache.forEach(server => console.log(server.name));
         // console.log(name.name);
 
     },
