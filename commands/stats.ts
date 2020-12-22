@@ -2,6 +2,7 @@ module.exports = {
     name:"stats",
     execute(msg) {
 
+        // Keep track of which commands are used the most
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();

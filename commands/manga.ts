@@ -5,6 +5,7 @@ module.exports = {
     description: '',
     execute(msg) {
 
+        // Update SQLite database when someone uses the command
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
@@ -13,7 +14,6 @@ module.exports = {
         sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay, slashanime, slashmanga) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay, @slashanime, @slashmanga);").run(stats);
 
         const fetch = require('node-fetch');
-
         const sanitizeHtml = require('sanitize-html');
 
         // Define our query variables and values that will be used in the query request
@@ -71,14 +71,10 @@ module.exports = {
 
         function handleData(results) {
 
-            //var desc = results.data.Media.description.substring(0,100);
             var dirty = results.data.Media.description.substring(0,250);
             const desc = sanitizeHtml(dirty, { allowedTags: [], allowedAttributes: {} });
-            //var desc = results.data.Media.description.substring(0,250).replace(/<br>/gi, "");
 
             const aboutEmbed = new Discord4.MessageEmbed()
-            //.setTitle(`About Anime List`)
-            //.setURL(`https://chr1s.dev`)
             .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native})`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
             .setColor('#55128E')
             .setDescription(`${desc}...`)

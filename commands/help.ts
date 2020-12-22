@@ -4,6 +4,7 @@ module.exports = {
 	description: 'Lists all commands',
 	execute(msg, args) {
 
+        // Update SQLite database when someone uses the command
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
