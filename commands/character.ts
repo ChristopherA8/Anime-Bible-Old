@@ -4,6 +4,7 @@ module.exports = {
     description: '',
     execute(msg, args) {
 
+        // Update SQLite database when someone uses the command
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
@@ -12,9 +13,7 @@ module.exports = {
         sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay, slashanime, slashmanga) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay, @slashanime, @slashmanga);").run(stats);
 
         const fetch = require('node-fetch');
-
         var input = msg.content.substr(11);
-
         var searchURL = `https://api.jikan.moe/v3/search/character?q=${input}&page=1`;
 
         fetch(searchURL)
@@ -37,8 +36,6 @@ module.exports = {
                 }
             }
 
-            const animeUrl = api.results[0].anime[0].url;
-
             const aboutEmbed = new Discord7.MessageEmbed()
             .setAuthor(`${name}`, `${image_url}`,`${url}`)
             .setColor('#55128E')
@@ -57,11 +54,3 @@ module.exports = {
 
     },
 }
-
-/*
-const aboutEmbed = new Discord7.MessageEmbed()
-.setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
-.setColor('#02f2ce')
-.setDescription(`${quote}\n **- ${character}**`)
-msg.channel.send(aboutEmbed)
-*/
