@@ -9,7 +9,7 @@ module.exports = {
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
         stats.character++;
         stats.total++;
-        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay);").run(stats);
+        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay, slashanime, slashmanga) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay, @slashanime, @slashmanga);").run(stats);
 
         const fetch = require('node-fetch');
 

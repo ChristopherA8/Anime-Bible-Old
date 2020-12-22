@@ -7,7 +7,7 @@ module.exports = {
         var stats = sql.prepare("SELECT * FROM stats WHERE stay = 1").get();
         stats.invite++;
         stats.total++;
-        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay);").run(stats);
+        sql.prepare("INSERT OR REPLACE INTO stats (total, anime, manga, character, help, about, invite, quote, stay, slashanime, slashmanga) VALUES (@total, @anime, @manga, @character, @help, @about, @invite, @quote, @stay, @slashanime, @slashmanga);").run(stats);
 
         msg.channel.send(`Bot Invite Link:\n\<https://discord.com/oauth2/authorize?client_id=763464598959292458&scope=bot&permissions=515136\>`);
 
