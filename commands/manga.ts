@@ -78,7 +78,7 @@ module.exports = {
             .setAuthor(`${results.data.Media.title.romaji} (${results.data.Media.title.native})`, `https://anilist.co/img/icons/favicon-32x32.png`,`https://anilist.co`)
             .setColor('#55128E')
             .setDescription(`${desc}...`)
-            .setFooter(`Average Score: ${results.data.Media.averageScore}/100`, `https://chr1s.dev/assets/animelist.png`)
+            .setFooter(results.data.Media.averageScore ? `Average Score: ${results.data.Media.averageScore}/100`: '', `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
             msg.channel.send(aboutEmbed)
 

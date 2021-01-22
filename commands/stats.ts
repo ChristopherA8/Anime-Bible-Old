@@ -2,6 +2,8 @@ module.exports = {
     name:"stats",
     execute(msg) {
 
+        if (msg.author.id !== `279032930926592000`) return;
+
         // Keep track of which commands are used the most
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');

@@ -11,23 +11,19 @@
 /*                                                          */
 /* =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 
+// Constants
 const fs = require('fs');
 const Discord = require('discord.js');
 const config = require('./config.json');
 const { prefix, token, topToken } = require('./config.json');
 const client = new Discord.Client()
-client.commands = new Discord.Collection();
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.ts'));
 const sanitizeHtml = require('sanitize-html');
 const DBL = require('dblapi.js');
 const dbl = new DBL(topToken, client);
 
-
-// Include Command Files ending in .ts
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}
+// Custom Modules
+const { commands } = require('./modules/commandHandler.ts');
+commands(client, Discord, fs);
 
 
 /* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
