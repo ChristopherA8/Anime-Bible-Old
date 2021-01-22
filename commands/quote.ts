@@ -1,7 +1,6 @@
 const Discord6 = require('discord.js');
 module.exports = {
     name: 'quote',
-    description: '',
     execute(msg, args) {
 
         // Update SQLite database when someone uses the command
