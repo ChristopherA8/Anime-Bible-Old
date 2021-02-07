@@ -66,7 +66,7 @@ function animeEmbed(guild_id, channel_id) {
   };
   var query = `
   {
-      Media(search: "${vars.search}", type: ANIME) {
+      Media(search: "${vars.search}", type: ANIME, isAdult: false) {
         coverImage {
           extraLarge
           large
@@ -82,6 +82,7 @@ function animeEmbed(guild_id, channel_id) {
         description(asHtml: false)
         episodes
         averageScore
+        genres
       }
     }
   `;
@@ -117,7 +118,11 @@ function animeEmbed(guild_id, channel_id) {
     .setDescription(`${desc}...`)
     .setFooter(`Total Episodes: ${results.data.Media.episodes}   |   Average Score: ${results.data.Media.averageScore}/100`, `https://chr1s.dev/assets/animelist.png`)
     .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
-    channel.send(aboutEmbed)
+    if (results.data.Media.genres.includes("Ecchi") && channel.nsfw == false) {
+      channel.send(`**Ecchi anime only allowed in NSFW channel**`)
+    } else {
+      channel.send(aboutEmbed)
+    }
 
   }
   function handleError(error) {
@@ -145,7 +150,7 @@ function mangaEmbed(guild_id, channel_id) {
   };
   var query = `
   {
-      Media(search: "${vars.search}", type: MANGA) {
+      Media(search: "${vars.search}", type: MANGA, isAdult: false) {
         coverImage {
           extraLarge
           large
@@ -161,6 +166,7 @@ function mangaEmbed(guild_id, channel_id) {
         description(asHtml: false)
         episodes
         averageScore
+        genres
       }
     }
   `;
@@ -195,7 +201,11 @@ function mangaEmbed(guild_id, channel_id) {
       .setDescription(`${desc}...`)
       .setFooter(`Average Score: ${results.data.Media.averageScore}/100`, `https://chr1s.dev/assets/animelist.png`)
       .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
-      channel.send(aboutEmbed)
+      if (results.data.Media.genres.includes("Ecchi") && channel.nsfw == false) {
+        channel.send(`**Ecchi manga only allowed in NSFW channel**`)
+      } else {
+          channel.send(aboutEmbed)
+      }
 
   }
   
@@ -212,6 +222,8 @@ client.on('ready', () => {
   // Sets Bot Status
   console.log("Connected as " + client.user.tag + ", yo yo yo") // Make sure the bot connects
   client.user.setActivity(`//help in ${client.guilds.cache.size} servers`, {type: "PLAYING"})
+  // client.user.setActivity(`Thank you for ${client.guilds.cache.size} servers!!!`, {type: "PLAYING"})
+
 
   //top.gg
   setInterval(() => {

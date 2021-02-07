@@ -24,7 +24,7 @@ module.exports = {
         // Here we define our query as a multi-line string
         var query = `
         {
-            Media(search: "${vars.search}", type: MANGA) {
+            Media(search: "${vars.search}", type: MANGA, isAdult: false) {
               coverImage {
                 extraLarge
                 large
@@ -40,6 +40,7 @@ module.exports = {
               description(asHtml: false)
               episodes
               averageScore
+              genres
             }
           }
         `;
@@ -80,7 +81,11 @@ module.exports = {
             .setDescription(`${desc}...`)
             .setFooter(results.data.Media.averageScore ? `Average Score: ${results.data.Media.averageScore}/100`: '', `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
-            msg.channel.send(aboutEmbed)
+            if (results.data.Media.genres.includes("Ecchi") && msg.channel.nsfw == false) {
+                msg.channel.send(`**Ecchi manga only allowed in NSFW channel**`)
+            } else {
+                msg.channel.send(aboutEmbed)
+            }
 
         }
 

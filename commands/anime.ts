@@ -25,7 +25,7 @@ module.exports = {
         // Here we define our query as a multi-line string
         var query = `
         {
-            Media(search: "${vars.search}", type: ANIME) {
+            Media(search: "${vars.search}", type: ANIME, isAdult: false) {
               coverImage {
                 extraLarge
                 large
@@ -41,6 +41,7 @@ module.exports = {
               description(asHtml: false)
               episodes
               averageScore
+              genres
             }
           }
         `;
@@ -70,6 +71,7 @@ module.exports = {
             });
         }
 
+
         function handleData(results) {
 
             var dirty = results.data.Media.description.substring(0,250);
@@ -81,7 +83,11 @@ module.exports = {
             .setDescription(`${desc}...`)
             .setFooter(`${results.data.Media.episodes ? "Total Episodes: " + results.data.Media.episodes : ''}   ${results.data.Media.averageScore ? `|   Average Score: ${results.data.Media.averageScore}/100`: ''}`, `https://chr1s.dev/assets/animelist.png`)
             .setThumbnail(`${results.data.Media.coverImage.extraLarge}`)
-            msg.channel.send(aboutEmbed)
+            if (results.data.Media.genres.includes("Ecchi") && msg.channel.nsfw == false) {
+                msg.channel.send(`**Ecchi anime only allowed in NSFW channel**`)
+            } else {
+                msg.channel.send(aboutEmbed)
+            }
 
         }
 
