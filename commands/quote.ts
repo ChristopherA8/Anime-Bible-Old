@@ -2,7 +2,7 @@ const Discord6 = require('discord.js');
 module.exports = {
     name: 'quote',
     execute(msg, args) {
-
+	/*
         // Update SQLite database when someone uses the command
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
@@ -49,5 +49,7 @@ module.exports = {
         //     icon: 'C:\\Users\\chris\\Pictures\\Chr1sDev\\chr1s.png'
         //   });
 
-    },
+	*/
+	msg.channel.send("Quote command temporarily down");
+	},
 }
