@@ -248,6 +248,26 @@ client.on('ready', () => {
     return response.json();
   }
 
+  async function postMoreData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      cache: 'no-cache',
+      credentials: 'same-origin',
+      headers: {
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOnRydWUsImlkIjoiMjc5MDMyOTMwOTI2NTkyMDAwIiwiaWF0IjoxNjE0OTYyNTMzfQ.BuPBJMSlRTSlTzrCyXumAWodC6uZZM1dWENQpm-YWoc',
+        'Content-Type': 'application/json',
+      },
+      redirect: 'follow',
+      referrerPolicy: 'no-referrer',
+      body: JSON.stringify(data)
+    });
+    return response.json();
+  }
+  postData(`https://discord.bots.gg/api/v1/bots/763464598959292458/stats`, { guildCount: client.guilds.cache.size, shardCount: client.shard.count })
+  .then(data => {
+    console.log(data);
+  });
   postData(`https://discordbotlist.com/api/v1/bots/763464598959292458/stats`, { guilds: client.guilds.cache.size })
   .then(data => {
     console.log(data);
