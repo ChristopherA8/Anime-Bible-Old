@@ -2,7 +2,7 @@ const Discord6 = require('discord.js');
 module.exports = {
     name: 'quote',
     execute(msg, args) {
-	/*
+	
         // Update SQLite database when someone uses the command
         const SQLite = require('better-sqlite3');
         const sql = new SQLite('./databases/stats.sqlite');
@@ -15,9 +15,9 @@ module.exports = {
         var input = msg.content.substr(8);
 
         if (input === "") {
-            var url = `https://animechanapi.xyz/api/quotes/random`;
+            var url = `https://animechan.vercel.app/api/random`;
         } else {
-            var url = `https://animechanapi.xyz/api/quotes?anime=${input}`;
+            var url = `https://animechan.vercel.app/api/quotes/anime?title=${input}`;
         }
 
         fetch(url)
@@ -49,7 +49,7 @@ module.exports = {
         //     icon: 'C:\\Users\\chris\\Pictures\\Chr1sDev\\chr1s.png'
         //   });
 
-	*/
-	msg.channel.send("Quote command temporarily down");
+	
+	// msg.channel.send("Quote command temporarily down");
 	},
 }
