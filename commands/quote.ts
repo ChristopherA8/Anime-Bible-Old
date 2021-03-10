@@ -16,24 +16,41 @@ module.exports = {
 
         if (input === "") {
             var url = `https://animechan.vercel.app/api/random`;
+
+            fetch(url)
+            .then(res => res.json())
+            .then((results) => {
+    
+                const { quote, character, anime } = results;
+    
+                const aboutEmbed = new Discord6.MessageEmbed()
+                .setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
+                .setColor('#55128E')
+                .setDescription(`${quote}\n **- ${character}**`)
+                msg.channel.send(aboutEmbed)
+    
+            })
+            .catch(handleError);
         } else {
             var url = `https://animechan.vercel.app/api/quotes/anime?title=${input}`;
+
+            fetch(url)
+            .then(res => res.json())
+            .then((results) => {
+    
+                const { quote, character, anime } = results[0];
+    
+                const aboutEmbed = new Discord6.MessageEmbed()
+                .setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
+                .setColor('#55128E')
+                .setDescription(`${quote}\n **- ${character}**`)
+                msg.channel.send(aboutEmbed)
+    
+            })
+            .catch(handleError);
         }
 
-        fetch(url)
-        .then(res => res.json())
-        .then((results) => {
 
-            const { quote, character, anime } = results;
-
-            const aboutEmbed = new Discord6.MessageEmbed()
-            .setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
-            .setColor('#55128E')
-            .setDescription(`${quote}\n **- ${character}**`)
-            msg.channel.send(aboutEmbed)
-
-        })
-        .catch(handleError);
 
         function handleError(error) {
             msg.channel.send(`\**Error:\** Invalid anime name! (//quote command does not include many anime)`);
