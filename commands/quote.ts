@@ -24,7 +24,7 @@ module.exports = {
         .then(res => res.json())
         .then((results) => {
 
-            const { quote, character, anime } = results.data[0];
+            const { quote, character, anime } = results;
 
             const aboutEmbed = new Discord6.MessageEmbed()
             .setAuthor(`Quote from ${anime}:`, `https://chr1s.dev/assets/animelist.png`,`https://animechanapi.xyz/`)
