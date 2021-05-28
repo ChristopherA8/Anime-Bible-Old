@@ -2,7 +2,7 @@
 /* =-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
 /*                                                          */
 /*                 Welcome to Anime Bible!                  */
-/*             Written entirely in typecript                */
+/*             Written entirely in javascript               */
 /*     Searches for Anime, Manga, Characters and more!      */
 /*            Using the AniList.co GraphQL API              */
 /*                                                          */

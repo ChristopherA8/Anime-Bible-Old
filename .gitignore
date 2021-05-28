@@ -1,13 +1,17 @@
 /config.json
 /node_modules
 index.ts
+index.js
 /databases
 commands/delete.ts
 commands/get.ts
 commands/slash.ts
 commands/anime.json
+commands/names.ts
 guilds.json
 .gitignore
 level_two.json
 partnered.json
 level_one.json
+level_three.json
+package-lock.json
