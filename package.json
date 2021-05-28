@@ -7,7 +7,7 @@
     "@discordjs/opus": "^0.3.3",
     "better-sqlite3": "^7.1.2",
     "dblapi.js": "^2.4.1",
-    "discord.js": "github:discordjs/discord.js#master",
+    "discord.js": "github:discordjs/discord.js",
     "ffmpeg-static": "^4.2.7",
     "mathjs": "^7.6.0",
     "node-fetch": "^2.6.1",
