@@ -271,17 +271,18 @@ client.on("ready", () => {
     });
     return response.json();
   }
-  postMoreData(`https://discord.bots.gg/api/v1/bots/763464598959292458/stats`, {
-    guildCount: client.guilds.cache.size,
-    shardCount: client.shard.count,
-  }).then((data) => {
-    console.log(data);
-  });
+  // postMoreData(`https://discord.bots.gg/api/v1/bots/763464598959292458/stats`, {
+  //   guildCount: client.guilds.cache.size,
+  //   shardCount: client.shard.count,
+  // }).then((data) => {
+  //   console.log(data);
+  // });
+  /*
   postData(`https://discordbotlist.com/api/v1/bots/763464598959292458/stats`, {
     guilds: client.guilds.cache.size,
   }).then((data) => {
     console.log(data);
-  });
+  }); */
 });
 
 client.on("message", (msg) => {
