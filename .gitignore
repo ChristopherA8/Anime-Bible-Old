@@ -2,6 +2,7 @@
 /node_modules
 index.ts
 index.js
+bot.js
 /databases
 commands/delete.ts
 commands/get.ts
