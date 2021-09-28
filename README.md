@@ -1,4 +1,7 @@
-# Anime Bible
+# Anime Bible OLD REPOSITORY
+
+Newest version is at [Chr1sDev/AnimeBible](https://github.com/chr1sdev/animebible)
+
  Discord bot for [AniList](https://anilist.co)
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
